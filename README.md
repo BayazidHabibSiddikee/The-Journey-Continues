@@ -22,7 +22,7 @@ The building became the point.
 
 **2020–2024** — 33 certifications. Exploring everything. Committing to nothing yet.  
 **2025** — 18 more. Starting to see the shape of what I actually want.  
-**2025–Present** — Books, communities, real projects. The actual work begins.
+**2026–Present** — Books, communities, real projects. The actual work begins.
 
 ---
 
