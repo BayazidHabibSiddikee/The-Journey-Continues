@@ -16,7 +16,7 @@ Now I know.
 
 I started with voice commands and if-else logic. Realized I needed LLMs. Built an AI. Then built an OS around her. Then a CNC machine controlled from Telegram. Then a browser for people who hate distraction. Each project was a question I needed to answer by building.
 
-Somewhere between the 30th certificate and the 9th project, the certificates stopped being the point.
+Somewhere between the 40th certificate and the 9th project, the certificates stopped being the point.
 
 The building became the point.
 
