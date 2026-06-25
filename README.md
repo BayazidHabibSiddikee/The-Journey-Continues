@@ -32,35 +32,35 @@ The building became the point.
 
 | Project | What it is |
 |---------|-----------|
-| **Marin_OS** | A minimal Debian-based OS where an AI is the system owner. i3, Auto-RAG, health monitoring, web UI. My first real system — where I learned that controlling computers with code is just the beginning. |
-| **Marin_Evil_Sentinel** | An AI that doesn't let you slack. Tracks your progress, pushes back, removes distractions. Your goals, enforced. Free to use. |
-| **Marin_Kitagawa_v3** | VRM model support. Daily driver. Rarely pushed. |
-| **Bayazid-Marin** | Two personalities, one system. One teaches and maps the path. The other makes anything understandable. |
+| [**Marin_OS**](https://github.com/BayazidHabibSiddikee/Marin_OS) | A minimal Debian-based OS where an AI is the system owner. i3, Auto-RAG, health monitoring, web UI. My first real system — where I learned that controlling computers with code is just the beginning. |
+| [**Marin_Evil_Sentinel**](https://github.com/BayazidHabibSiddikee/Marin_Evil_Sentinel) | An AI that doesn't let you slack. Tracks your progress, pushes back, removes distractions. Your goals, enforced. Free to use. |
+| [**Marin_Kitagawa_v3**](https://github.com/BayazidHabibSiddikee/Marin_Kitagawa_v3) | VRM model support. Daily driver. Rarely pushed. |
+| [**Bayazid-Marin**](https://github.com/BayazidHabibSiddikee/Bayazid-Marin) | Two personalities, one system. One teaches and maps the path. The other makes anything understandable. |
 
 ### Where It Started
 
 | Project | What it is |
 |---------|-----------|
-| **VPA** | Voice control with if-else logic. The project that taught me I needed LLMs to do this right. The wrong tool for the job is sometimes the best teacher. |
+| [**VPA**](https://github.com/BayazidHabibSiddikee/VPA) | Voice control with if-else logic. The project that taught me I needed LLMs to do this right. The wrong tool for the job is sometimes the best teacher. |
 
 ### Web & Browser Tools
 
 | Project | What it is |
 |---------|-----------|
-| **SwordFish** | A browser built for focus. Ad-blocker, PDF tools, video downloader, archive support. Built it because nothing else worked the way I needed. |
-| **web_based_terminal** | Flash ATmega chips from a browser. No desktop IDE, no friction. |
+| [**SwordFish**](https://github.com/BayazidHabibSiddikee/SwordFish) | A browser built for focus. Ad-blocker, PDF tools, video downloader, archive support. Built it because nothing else worked the way I needed. |
+| [**web_based_terminal**](https://github.com/BayazidHabibSiddikee/web_based_terminal) | Flash ATmega chips from a browser. No desktop IDE, no friction. |
 
 ### Hardware
 
 | Project | What it is |
 |---------|-----------|
-| **CNC Math Plotter** | Write an equation. Watch a machine draw it. Controlled from Telegram. NLP-parsed input. A physical Desmos. |
+| [**CNC Math Plotter**](https://github.com/BayazidHabibSiddikee/CNC-Math-Plotter) | Write an equation. Watch a machine draw it. Controlled from Telegram. NLP-parsed input. A physical Desmos. |
 
 ### Tools
 
 | Project | What it is |
 |---------|-----------|
-| **Tools** | Things I built because I needed them. Automation, shortcuts, little systems that save hours. |
+| [**Tools**](https://github.com/BayazidHabibSiddikee/Tools) | Things I built because I needed them. Automation, shortcuts, little systems that save hours. |
 
 ---
 
