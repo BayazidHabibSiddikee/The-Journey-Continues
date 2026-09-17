@@ -1,0 +1,16 @@
+# Large video files — host these on YouTube or Git LFS instead
+portfolio/assets/images/*.mp4
+portfolio/assets/images/*.mov
+portfolio/assets/images/*.avi
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~

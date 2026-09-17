@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bayazid Habib Siddikee | Mechatronics @ RUET</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FF5A3D'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%2315110F' font-family='system-ui' font-weight='800' font-size='18'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--sc-canvas:#0A0806;--sc-surface:#16110E;--sc-ink:#F5EBDD;--sc-ink-soft:#A2968A;--sc-accent:#FF5A3D;--sc-accent-ink:#15110F;--sc-font-display:"Playfair Display",Georgia,serif;--sc-font-text:"Space Grotesk",system-ui,sans-serif;--sc-font-mono:"JetBrains Mono",ui-monospace,monospace}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--sc-canvas);color:var(--sc-ink);font-family:var(--sc-font-text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--sc-accent);color:var(--sc-accent-ink)}
+a{color:inherit;text-decoration:none}
+img,iframe,video{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--sc-accent);outline-offset:3px;border-radius:4px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 5vw;background:rgba(10,8,6,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(245,235,221,.07)}
+.nav__brand{display:flex;align-items:center;gap:10px;font-family:var(--sc-font-mono);font-weight:700;font-size:14px;letter-spacing:.06em}
+.nav__mark{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:linear-gradient(135deg,var(--sc-accent),#a8321e);color:var(--sc-accent-ink);font-size:14px;box-shadow:0 0 14px rgba(255,90,61,.25)}
+.nav__links{display:flex;gap:4px;list-style:none}
+.nav__links a{font-family:var(--sc-font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--sc-ink-soft);padding:8px 14px;border-radius:8px;transition:.22s}
+.nav__links a:hover{color:var(--sc-ink);background:rgba(245,235,221,.06)}
+.nav__links a.is-active{color:var(--sc-accent);background:rgba(255,90,61,.1)}
+.nav__cta{font-family:var(--sc-font-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sc-accent-ink)!important;background:var(--sc-accent);padding:9px 16px;border-radius:9px;box-shadow:0 4px 18px rgba(255,90,61,.25);transition:.22s}
+.nav__cta:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.nav__burger{display:none;background:none;border:1px solid rgba(245,235,221,.14);color:var(--sc-ink);font-family:var(--sc-font-mono);font-size:15px;padding:7px 12px;border-radius:8px;cursor:pointer}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:130px 5vw 80px}
+.hero__inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero__kicker{display:inline-flex;align-items:center;gap:9px;font-family:var(--sc-font-mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sc-accent);border:1px solid rgba(255,90,61,.35);background:rgba(255,90,61,.06);padding:7px 14px;border-radius:999px;margin-bottom:22px}
+.hero__kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--sc-accent);box-shadow:0 0 10px var(--sc-accent);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:var(--sc-font-display);font-size:clamp(38px,5.6vw,68px);line-height:1.06;font-weight:700;letter-spacing:-.01em;margin-bottom:18px}
+.hero h1 em{color:var(--sc-accent);font-style:italic}
+.hero .typedline{font-family:var(--sc-font-mono);font-size:clamp(13px,1.5vw,15.5px);color:var(--sc-ink-soft);min-height:1.9em;margin-bottom:14px}
+.hero .typedline .prompt{color:var(--sc-accent)}
+#typed{color:var(--sc-ink)}
+.caret{display:inline-block;width:8px;height:1.1em;transform:translateY(2px);background:var(--sc-accent);margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero p.lede{color:var(--sc-ink-soft);max-width:56ch;margin-bottom:28px;font-size:16px;line-height:1.7}
+.hero__actions{display:flex;flex-wrap:wrap;gap:13px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sc-font-mono);font-size:12.5px;letter-spacing:.06em;padding:13px 22px;border-radius:11px;transition:.22s;cursor:pointer;border:0}
+.btn--primary{background:var(--sc-accent);color:var(--sc-accent-ink);box-shadow:0 6px 24px rgba(255,90,61,.25)}
+.btn--primary:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.btn--ghost{border:1px solid rgba(245,235,221,.18);color:var(--sc-ink);background:rgba(245,235,221,.03)}
+.btn--ghost:hover{border-color:var(--sc-accent);color:var(--sc-accent);transform:translateY(-2px)}
+.term{background:linear-gradient(180deg,#0f0d0a,#0b0907);border:1px solid rgba(245,235,221,.12);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 50px rgba(255,90,61,.05);font-family:var(--sc-font-mono);font-size:12.5px}
+.term__bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#0c0b08;border-bottom:1px solid rgba(245,235,221,.07)}
+.term__bar .b{width:10px;height:10px;border-radius:50%}
+.term__bar .b1{background:#ff5f56}.term__bar .b2{background:#ffbd2e}.term__bar .b3{background:#27c93f}
+.term__bar .title{margin-left:auto;font-size:10.5px;color:var(--sc-ink-soft);letter-spacing:.08em;opacity:.7}
+.term__body{padding:20px 20px 24px;line-height:2;color:var(--sc-ink-soft)}
+.term__body .ok{color:#3ddc84}
+.term__body .key{color:var(--sc-accent)}
+.term__body .who{color:var(--sc-ink);font-weight:600}
+
+/* SECTIONS */
+.section{padding:96px 5vw;max-width:1200px;margin:0 auto}
+.section__tag{font-family:var(--sc-font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sc-accent);display:inline-flex;align-items:center;gap:10px;margin-bottom:12px}
+.section__tag::before{content:"";width:24px;height:1px;background:var(--sc-accent)}
+.section__title{font-family:var(--sc-font-display);font-size:clamp(26px,3.8vw,42px);line-height:1.12;font-weight:700;margin-bottom:14px}
+.section__title em{color:var(--sc-accent);font-style:italic}
+.section__sub{color:var(--sc-ink-soft);max-width:64ch;font-size:15.5px;line-height:1.7}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
+.stat{background:var(--sc-surface);border:1px solid rgba(245,235,221,.08);border-radius:14px;padding:26px 24px;position:relative;overflow:hidden;transition:.25s}
+.stat::after{content:"";position:absolute;inset:auto 0 0 0;height:2px;background:linear-gradient(90deg,var(--sc-accent),transparent);opacity:.7}
+.stat:hover{transform:translateY(-4px);border-color:rgba(255,90,61,.4);box-shadow:0 14px 40px rgba(0,0,0,.4)}
+.stat .num{font-family:var(--sc-font-mono);font-size:36px;font-weight:700;color:var(--sc-ink);line-height:1}
+.stat .num span{color:var(--sc-accent)}
+.stat .lbl{font-family:var(--sc-font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sc-ink-soft);margin-top:10px;opacity:.8}
+
+/* CERTS VAULT */
+.filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:34px}
+.chip{font-family:var(--sc-font-mono);font-size:11.5px;letter-spacing:.08em;padding:9px 16px;border-radius:999px;border:1px solid rgba(245,235,221,.16);background:transparent;color:var(--sc-ink-soft);cursor:pointer;transition:.2s}
+.chip:hover{color:var(--sc-ink);border-color:var(--sc-accent)}
+.chip.is-active{background:var(--sc-accent);border-color:var(--sc-accent);color:var(--sc-accent-ink);box-shadow:0 4px 18px rgba(255,90,61,.25)}
+.chip .n{opacity:.65;margin-left:5px}
+.certs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cert{background:var(--sc-surface);border:1px solid rgba(245,235,221,.08);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:.25s;cursor:zoom-in}
+.cert:hover{transform:translateY(-5px);border-color:rgba(255,90,61,.45);box-shadow:0 16px 44px rgba(0,0,0,.4)}
+.cert.is-hidden{display:none}
+.cert__img{aspect-ratio:4/3;overflow:hidden;background:#0c0a08;position:relative}
+.cert__img img{width:100%;height:100%;object-fit:cover;object-position:top;transition:.35s;opacity:.92}
+.cert:hover .cert__img img{opacity:1;transform:scale(1.04)}
+.cert__img .honors{position:absolute;top:10px;left:10px;font-family:var(--sc-font-mono);font-size:9px;letter-spacing:.14em;background:var(--sc-accent);color:var(--sc-accent-ink);padding:4px 9px;border-radius:6px;text-transform:uppercase;box-shadow:0 3px 12px rgba(255,90,61,.3)}
+.cert__body{padding:15px 16px 17px;display:flex;flex-direction:column;gap:5px;flex:1}
+.cert__body h3{font-size:14px;font-weight:600;line-height:1.35}
+.cert__body .iss{font-family:var(--sc-font-mono);font-size:10.5px;color:var(--sc-accent);letter-spacing:.06em}
+.cert__body .dt{font-family:var(--sc-font-mono);font-size:10px;color:var(--sc-ink-soft);letter-spacing:.1em;text-transform:uppercase;margin-top:auto;padding-top:8px;opacity:.75}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;z-index:200;display:none;place-items:center;background:rgba(10,8,6,.94);backdrop-filter:blur(8px);padding:4vmin}
+.lightbox.open{display:grid}
+.lightbox img{max-width:92vw;max-height:86vh;border-radius:12px;border:1px solid rgba(245,235,221,.14);box-shadow:0 40px 120px rgba(0,0,0,.7)}
+.lightbox .cap{position:absolute;bottom:3.2vmin;left:50%;transform:translateX(-50%);font-family:var(--sc-font-mono);font-size:12px;color:var(--sc-ink-soft);letter-spacing:.1em;text-align:center;max-width:80vw}
+.lightbox .x,.lightbox .nv{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:rgba(245,235,221,.06);border:1px solid rgba(245,235,221,.14);color:var(--sc-ink);font-size:18px;cursor:pointer;transition:.2s;user-select:none;min-width:44px;min-height:44px}
+.lightbox .x{top:3vmin;right:3vmin;transform:none}
+.lightbox .x:hover,.lightbox .nv:hover{background:var(--sc-accent);border-color:var(--sc-accent);color:var(--sc-accent-ink)}
+.lightbox .nv.prev{left:2vmin}.lightbox .nv.next{right:2vmin}
+
+/* GALLERY RAIL */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.shot{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(245,235,221,.08);aspect-ratio:4/3;background:var(--sc-surface);cursor:zoom-in}
+.shot img{width:100%;height:100%;object-fit:cover;transition:.45s;filter:saturate(.92)}
+.shot:hover img{transform:scale(1.05);filter:saturate(1.05)}
+.shot figcaption{position:absolute;inset:auto 0 0 0;padding:30px 16px 12px;background:linear-gradient(180deg,transparent,rgba(10,8,6,.9));font-family:var(--sc-font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--sc-ink);display:flex;justify-content:space-between;align-items:end;gap:8px}
+.shot figcaption span{color:var(--sc-accent);font-size:10px;white-space:nowrap}
+
+/* PUZZLE GATE */
+.puzzle-gate{background:var(--sc-surface);border:1px solid rgba(245,235,221,.1);border-radius:16px;padding:32px;max-width:420px;margin:0 auto;text-align:center}
+.puzzle-gate__label{font-family:var(--sc-font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sc-accent);margin-bottom:18px}
+.puzzle-gate__sub{font-size:13px;color:var(--sc-ink-soft);margin-top:10px;line-height:1.6}
+.puzzle-gate__cta{display:none;margin-top:18px}
+.puzzle-gate.solved{border-color:rgba(61,220,132,.5);box-shadow:0 0 40px rgba(61,220,132,.1)}
+.puzzle-gate.solved .puzzle-gate__label{color:#3ddc84}
+.puzzle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;width:240px;height:240px;margin:0 auto;user-select:none;-webkit-user-select:none;touch-action:none}
+.puzzle-tile{background:var(--sc-surface);border:1px solid rgba(245,235,221,.12);border-radius:10px;display:grid;place-items:center;font-family:var(--sc-font-display);font-size:28px;font-weight:700;color:var(--sc-ink);cursor:grab;transition:transform .18s ease,background .18s ease,box-shadow .18s ease;min-height:44px;min-width:44px}
+.puzzle-tile:hover{background:#1e1814;border-color:rgba(255,90,61,.4);box-shadow:0 0 18px rgba(255,90,61,.12)}
+.puzzle-tile:active{cursor:grabbing;transform:scale(.96);background:#241c16}
+.puzzle-tile.empty{cursor:default;background:transparent;border-color:rgba(245,235,221,.05);box-shadow:none;color:transparent}
+.puzzle-gate__status{margin-top:14px;font-family:var(--sc-font-mono);font-size:11.5px;color:var(--sc-ink-soft);letter-spacing:.08em}
+.puzzle-gate__check{display:none;font-size:28px;color:#3ddc84;margin-top:10px}
+.puzzle-gate.solved .puzzle-gate__check{display:block}
+.puzzle-gate.solved .puzzle-gate__status{color:#3ddc84}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+.contact-card{background:var(--sc-surface);border:1px solid rgba(245,235,221,.08);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:14px;transition:.25s}
+.contact-card:hover{border-color:rgba(255,90,61,.4);transform:translateY(-4px)}
+.contact-card h3{font-family:var(--sc-font-display);font-size:20px;font-weight:600;display:flex;align-items:center;gap:10px}
+.contact-card h3 span{font-size:22px}
+.contact-card .addr{font-family:var(--sc-font-mono);font-size:13px;color:var(--sc-ink-soft);word-break:break-all;line-height:1.6}
+.contact-card .addr a{color:var(--sc-accent);transition:.2s}
+.contact-card .addr a:hover{filter:brightness(1.2)}
+
+/* FOOTER */
+.footer{border-top:1px solid rgba(245,235,221,.07);padding:44px 5vw;text-align:center}
+.footer .q{font-family:var(--sc-font-display);font-style:italic;font-size:15px;color:var(--sc-ink-soft);margin-bottom:10px}
+.footer .q b{color:var(--sc-accent)}
+.footer .fine{font-family:var(--sc-font-mono);font-size:10.5px;letter-spacing:.14em;color:var(--sc-ink-soft);text-transform:uppercase;opacity:.7}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+@media (max-width:1080px){.certs{grid-template-columns:repeat(3,1fr)}.hero__inner{grid-template-columns:1fr;gap:40px}.gallery{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:860px){.nav__links{position:fixed;top:60px;right:0;left:0;flex-direction:column;gap:2px;background:rgba(10,8,6,.98);border-bottom:1px solid rgba(245,235,221,.08);padding:12px 5vw 18px;display:none}.nav__links.open{display:flex}.nav__burger{display:block}.stats{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}}
+@media (max-width:640px){.certs{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:1fr}.section{padding:70px 5vw}.hero{padding-top:110px}.puzzle-grid{width:200px;height:200px}}
+</style>
+</head>
+<body>
+
+<nav class="nav" role="navigation" aria-label="Primary">
+  <div class="nav__brand"><div class="nav__mark" aria-hidden="true">B</div><span>BAYAZID HS</span></div>
+  <ul class="nav__links" id="navLinks">
+    <li><a href="index.html" class="is-active">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="#contact" class="nav__cta">Open a channel</a></li>
+  </ul>
+  <button class="nav__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+</nav>
+
+<!-- ===== ACT 1: Curiosity - Hero ===== -->
+<section data-sc-act="flow" data-sc-span="1.2">
+  <div class="hero">
+    <div class="hero__inner">
+      <div>
+        <div class="hero__kicker"><span class="dot" aria-hidden="true"></span> Mechatronics Engineering @ RUET</div>
+        <h1>Bayazid Habib Siddikee. Builder at <em>2 a.m.</em></h1>
+        <p class="typedline"><span class="prompt">&gt;</span> <span id="typed"></span><span class="caret" aria-hidden="true"></span></p>
+        <p class="lede">I build systems that think, move, and ship. From Debian-based operating systems to AI that enforces discipline, every project is a door I opened myself.</p>
+        <div class="hero__actions">
+          <a href="#vault" class="btn btn--primary">Enter the vault</a>
+          <a href="#projects-teaser" class="btn btn--ghost">See the work</a>
+        </div>
+      </div>
+      <div class="term" aria-hidden="true">
+        <div class="term__bar"><span class="b b1"></span><span class="b b2"></span><span class="b b3"></span><span class="title">bayazid@ruet:~</span></div>
+        <div class="term__body">
+          <div><span class="ok">[ok]</span> whoami <span class="who">bayazid</span></div>
+          <div><span class="ok">[ok]</span> cat mission.txt <span class="key">build the machine, not be the cog</span></div>
+          <div><span class="ok">[ok]</span> ls ~/built</div>
+          <div style="padding-left:18px;color:var(--sc-ink-soft)">Marin_OS  SwordFish  CNC-Plotter  SwordWM</div>
+          <div><span class="ok">[ok]</span> ssh bayazid@the-journey-continues</div>
+          <div><span class="ok">[ok]</span> git commit -m <span class="key">"still learning, still building"</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACT 2: Awe - The Vault (peak, span ~2.8vh) ===== -->
+<section id="vault" data-sc-act="pin" data-sc-span="2.8" data-sc-dwell="0.25">
+  <div data-sc-stage class="sc-stage" style="min-height:100svh;display:flex;align-items:center">
+    <div class="section" style="width:100%">
+      <div class="section__tag reveal">Act 02 / The Vault</div>
+      <h2 class="section__title reveal">42 certificates.<br>Every one a <em>door</em>.</h2>
+      <p class="section__sub reveal">Python, C, cybersecurity, embedded systems, management, AI. Forty-two doors opened. Same person behind every one.</p>
+
+      <div class="filters reveal" id="certFilters">
+        <button class="chip is-active" data-filter="all">All <span class="n">42</span></button>
+        <button class="chip" data-filter="programming">Programming</button>
+        <button class="chip" data-filter="security">Security</button>
+        <button class="chip" data-filter="embedded">Embedded</button>
+        <button class="chip" data-filter="ai">AI</button>
+        <button class="chip" data-filter="systems">Systems</button>
+        <button class="chip" data-filter="design">Design</button>
+      </div>
+
+      <div class="certs reveal" id="certGrid">
+        <!-- generated by JS from real asset filenames -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACT 3: Obsession - Projects Teaser + Puzzle Gate ===== -->
+<section id="projects-teaser" data-sc-act="pin" data-sc-span="2.2" data-sc-dwell="0.2">
+  <div data-sc-stage class="sc-stage" style="min-height:100svh;display:flex;align-items:center">
+    <div class="section" style="width:100%">
+      <div class="section__tag reveal">Act 03 / Obsession</div>
+      <h2 class="section__title reveal">10 project <em>films</em>. Each one built from scratch.</h2>
+      <p class="section__sub reveal">An OS where an AI owns the system. A browser with 20+ built-in tools. A CNC that draws equations from Telegram. Solve the gate to enter the room.</p>
+
+      <div style="margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px" class="reveal">
+        <div style="background:var(--sc-surface);border:1px solid rgba(245,235,221,.08);border-radius:14px;padding:22px;text-align:center">
+          <div style="font-family:var(--sc-font-mono);font-size:32px;font-weight:700;color:var(--sc-accent)">10</div>
+          <div style="font-family:var(--sc-font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sc-ink-soft);margin-top:8px">Project Films</div>
+        </div>
+        <div style="background:var(--sc-surface);border:1px solid rgba(245,235,221,.08);border-radius:14px;padding:22px;text-align:center">
+          <div style="font-family:var(--sc-font-mono);font-size:32px;font-weight:700;color:var(--sc-accent)">15+</div>
+          <div style="font-family:var(--sc-font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sc-ink-soft);margin-top:8px">Systems Built</div>
+        </div>
+        <div style="background:var(--sc-surface);border:1px solid rgba(245,235,221,.08);border-radius:14px;padding:22px;text-align:center">
+          <div style="font-family:var(--sc-font-mono);font-size:32px;font-weight:700;color:var(--sc-accent)">2</div>
+          <div style="font-family:var(--sc-font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sc-ink-soft);margin-top:8px">Internships</div>
+        </div>
+      </div>
+
+      <!-- PUZZLE GATE -->
+      <div class="puzzle-gate reveal" id="puzzleGate" style="margin-top:44px">
+        <div class="puzzle-gate__label">Room gate / arrange the tiles</div>
+        <div class="puzzle-grid" id="puzzleGrid" role="grid" aria-label="Sliding tile puzzle"></div>
+        <div class="puzzle-gate__status" id="puzzleStatus">Drag tiles to order them: 1 2 3 / 4 5 6 / 7 8 [ ]</div>
+        <div class="puzzle-gate__check" aria-hidden="true">&#10003; Room unlocked</div>
+        <div class="puzzle-gate__cta">
+          <a href="projects.html" class="btn btn--primary">Enter the Project Films room &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACT 4: Intimacy - RUET Campus ===== -->
+<section data-sc-act="pan" data-sc-pan="0.6" data-sc-span="2.0">
+  <div data-sc-stage class="sc-stage" style="min-height:100svh;display:flex;align-items:center">
+    <div style="width:100%;overflow:hidden">
+      <div class="section" style="padding-bottom:40px">
+        <div class="section__tag reveal">Act 04 / Intimacy</div>
+        <h2 class="section__title reveal">RUET.<br>Where the <em>journey</em> happens.</h2>
+        <p class="section__sub reveal">Rajshahi University of Engineering and Technology. The lab, the library, the 2 a.m. workshop.</p>
+      </div>
+      <div data-sc-pan style="display:flex;gap:18px;padding:0 5vw;width:max-content" id="ruetRail">
+        <figure class="shot reveal" style="width:clamp(280px,38vw,520px);flex-shrink:0"><a class="lightbox-item" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Rajshahi_University_of_Engineering_and_Technology.jpg/1280px-Rajshahi_University_of_Engineering_and_Technology.jpg" data-cap="RUET main campus" aria-label="View RUET main campus"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Rajshahi_University_of_Engineering_and_Technology.jpg/1280px-Rajshahi_University_of_Engineering_and_Technology.jpg" alt="RUET main campus" loading="lazy"></a><figcaption><span>RUET</span> Main gate</figcaption></figure>
+        <figure class="shot reveal" style="width:clamp(280px,38vw,520px);flex-shrink:0"><a class="lightbox-item" href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Rajshahi_University_of_Engineering_and_Technology_Central_Library.jpg/1280px-Rajshahi_University_of_Engineering_and_Technology_Central_Library.jpg" data-cap="RUET Central Library" aria-label="View RUET library"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Rajshahi_University_of_Engineering_and_Technology_Central_Library.jpg/1280px-Rajshahi_University_of_Engineering_and_Technology_Central_Library.jpg" alt="RUET library" loading="lazy"></a><figcaption><span>RUET</span> Central Library</figcaption></figure>
+        <figure class="shot reveal" style="width:clamp(280px,38vw,520px);flex-shrink:0"><a class="lightbox-item" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Rajshahi_University_of_Engineering_and_Technology_Academic_Building.jpg/1280px-Rajshahi_University_of_Engineering_and_Technology_Academic_Building.jpg" data-cap="Academic building" aria-label="View academic building"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Rajshahi_University_of_Engineering_and_Technology_Academic_Building.jpg/1280px-Rajshahi_University_of_Engineering_and_Technology_Academic_Building.jpg" alt="Academic building" loading="lazy"></a><figcaption><span>RUET</span> Academic Building</figcaption></figure>
+        <figure class="shot reveal" style="width:clamp(280px,38vw,520px);flex-shrink:0"><a class="lightbox-item" href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Rajshahi_University_of_Engineering_and_Technology_Lake.jpg/1280px-Rajshahi_University_of_Engineering_and_Technology_Lake.jpg" data-cap="Campus lake" aria-label="View campus lake"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Rajshahi_University_of_Engineering_and_Technology_Lake.jpg/1280px-Rajshahi_University_of_Engineering_and_Technology_Lake.jpg" alt="Campus lake" loading="lazy"></a><figcaption><span>RUET</span> Campus Lake</figcaption></figure>
+        <figure class="shot reveal" style="width:clamp(280px,38vw,520px);flex-shrink:0"><a class="lightbox-item" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Rajshahi_University_of_Engineering_and_Technology_Labs.jpg/1280px-Rajshahi_University_of_Engineering_and_Technology_Labs.jpg" data-cap="Engineering labs" aria-label="View engineering labs"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Rajshahi_University_of_Engineering_and_Technology_Labs.jpg/1280px-Rajshahi_University_of_Engineering_and_Technology_Labs.jpg" alt="Engineering labs" loading="lazy"></a><figcaption><span>RUET</span> Engineering Labs</figcaption></figure>
+        <figure class="shot reveal" style="width:clamp(280px,38vw,520px);flex-shrink:0"><a class="lightbox-item" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Rajshahi_University_of_Engineering_and_Technology_Sports_Complex.jpg/1280px-Rajshahi_University_of_Engineering_and_Technology_Sports_Complex.jpg" data-cap="Sports complex" aria-label="View sports complex"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Rajshahi_University_of_Engineering_and_Technology_Sports_Complex.jpg/1280px-Rajshahi_University_of_Engineering_and_Technology_Sports_Complex.jpg" alt="Sports complex" loading="lazy"></a><figcaption><span>RUET</span> Sports Complex</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACT 5: Confidence - Skills Teaser ===== -->
+<section data-sc-act="flow" data-sc-span="1.2">
+  <div class="section">
+    <div class="section__tag reveal">Act 05 / Confidence</div>
+    <h2 class="section__title reveal">What I can <em>actually</em> do.</h2>
+    <p class="section__sub reveal">Not a laundry list. Every bar below maps to a system I shipped, a certificate I earned, or a problem I solved at 2 a.m.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px" class="reveal">
+      <div style="background:var(--sc-surface);border:1px solid rgba(245,235,221,.08);border-radius:14px;padding:26px">
+        <div style="font-family:var(--sc-font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sc-accent);margin-bottom:16px">Programming</div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div><div style="display:flex;justify-content:space-between;font-family:var(--sc-font-mono);font-size:12px;margin-bottom:6px"><span>Python</span><span style="color:var(--sc-accent)">Expert</span></div><div style="height:5px;border-radius:4px;background:rgba(245,235,221,.07);overflow:hidden"><div data-w="92" style="height:100%;border-radius:4px;background:linear-gradient(90deg,#a8321e,var(--sc-accent));width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1)"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-family:var(--sc-font-mono);font-size:12px;margin-bottom:6px"><span>C</span><span style="color:var(--sc-accent)">Advanced</span></div><div style="height:5px;border-radius:4px;background:rgba(245,235,221,.07);overflow:hidden"><div data-w="85" style="height:100%;border-radius:4px;background:linear-gradient(90deg,#a8321e,var(--sc-accent));width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1)"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-family:var(--sc-font-mono);font-size:12px;margin-bottom:6px"><span>Java</span><span style="color:var(--sc-accent)">Intermediate</span></div><div style="height:5px;border-radius:4px;background:rgba(245,235,221,.07);overflow:hidden"><div data-w="68" style="height:100%;border-radius:4px;background:linear-gradient(90deg,#a8321e,var(--sc-accent));width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1)"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-family:var(--sc-font-mono);font-size:12px;margin-bottom:6px"><span>SQL</span><span style="color:var(--sc-accent)">Intermediate</span></div><div style="height:5px;border-radius:4px;background:rgba(245,235,221,.07);overflow:hidden"><div data-w="72" style="height:100%;border-radius:4px;background:linear-gradient(90deg,#a8321e,var(--sc-accent));width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1)"></div></div></div>
+        </div>
+      </div>
+      <div style="background:var(--sc-surface);border:1px solid rgba(245,235,221,.08);border-radius:14px;padding:26px">
+        <div style="font-family:var(--sc-font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sc-accent);margin-bottom:16px">AI &amp; Systems</div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div><div style="display:flex;justify-content:space-between;font-family:var(--sc-font-mono);font-size:12px;margin-bottom:6px"><span>LangChain / RAG</span><span style="color:var(--sc-accent)">Active</span></div><div style="height:5px;border-radius:4px;background:rgba(245,235,221,.07);overflow:hidden"><div data-w="82" style="height:100%;border-radius:4px;background:linear-gradient(90deg,#a8321e,var(--sc-accent));width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1)"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-family:var(--sc-font-mono);font-size:12px;margin-bottom:6px"><span>Linux / i3wm</span><span style="color:var(--sc-accent)">Daily</span></div><div style="height:5px;border-radius:4px;background:rgba(245,235,221,.07);overflow:hidden"><div data-w="88" style="height:100%;border-radius:4px;background:linear-gradient(90deg,#a8321e,var(--sc-accent));width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1)"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-family:var(--sc-font-mono);font-size:12px;margin-bottom:6px"><span>Embedded / IoT</span><span style="color:var(--sc-accent)">Hardware</span></div><div style="height:5px;border-radius:4px;background:rgba(245,235,221,.07);overflow:hidden"><div data-w="78" style="height:100%;border-radius:4px;background:linear-gradient(90deg,#a8321e,var(--sc-accent));width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1)"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-family:var(--sc-font-mono);font-size:12px;margin-bottom:6px"><span>Cybersecurity</span><span style="color:var(--sc-accent)">Foundations</span></div><div style="height:5px;border-radius:4px;background:rgba(245,235,221,.07);overflow:hidden"><div data-w="74" style="height:100%;border-radius:4px;background:linear-gradient(90deg,#a8321e,var(--sc-accent));width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1)"></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:28px" class="reveal">
+      <a href="skills.html" class="btn btn--ghost">View the full skills matrix &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACT 6: Resolve - Contact ===== -->
+<section id="contact" data-sc-act="pin" data-sc-span="1.6" data-sc-dwell="0.2">
+  <div data-sc-stage class="sc-stage" style="min-height:100svh;display:flex;align-items:center">
+    <div class="section" style="width:100%">
+      <div class="section__tag reveal">Act 06 / Resolve</div>
+      <h2 class="section__title reveal">Open a <em>channel</em>.</h2>
+      <p class="section__sub reveal">One clear action. Pick the path that fits.</p>
+
+      <div class="contact-grid reveal">
+        <div class="contact-card">
+          <h3><span aria-hidden="true">&#9993;</span> Email</h3>
+          <div class="addr"><a href="mailto:bayazidhabib@example.com">bayazidhabib@example.com</a></div>
+          <p style="font-size:13.5px;color:var(--sc-ink-soft);line-height:1.6">Best for project collaboration, research chat, or just saying hello.</p>
+        </div>
+        <div class="contact-card">
+          <h3><span aria-hidden="true">&#9733;</span> GitHub</h3>
+          <div class="addr"><a href="https://github.com/BayazidHabibSiddikee" target="_blank" rel="noopener">github.com/BayazidHabibSiddikee</a></div>
+          <p style="font-size:13.5px;color:var(--sc-ink-soft);line-height:1.6">Source code, project films, and the occasional late-night commit.</p>
+        </div>
+        <div class="contact-card">
+          <h3><span aria-hidden="true">&#9679;</span> LinkedIn</h3>
+          <div class="addr"><a href="https://linkedin.com/in/bayazidhabibsiddikee" target="_blank" rel="noopener">linkedin.com/in/bayazidhabibsiddikee</a></div>
+          <p style="font-size:13.5px;color:var(--sc-ink-soft);line-height:1.6">Professional updates, internship history, and network.</p>
+        </div>
+        <div class="contact-card">
+          <h3><span aria-hidden="true">&#9670;</span> Resume</h3>
+          <div class="addr"><a href="assets/docs/Bayazid_Habib_Siddikee_Resume.pdf" target="_blank" rel="noopener">Download PDF</a></div>
+          <p style="font-size:13.5px;color:var(--sc-ink-soft);line-height:1.6">Full timeline, certifications, and project list in one document.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PUZZLE GATE: Room gate before footer ===== -->
+<section data-sc-act="flow" data-sc-span="0.8" style="background:var(--sc-surface)">
+  <div style="padding:60px 5vw 40px;max-width:1200px;margin:0 auto">
+    <div class="puzzle-gate reveal" id="puzzleGate2">
+      <div class="puzzle-gate__label">Room gate / solve to leave</div>
+      <div class="puzzle-grid" id="puzzleGrid2" role="grid" aria-label="Sliding tile puzzle"></div>
+      <div class="puzzle-gate__status" id="puzzleStatus2">Drag tiles to order them: 1 2 3 / 4 5 6 / 7 8 [ ]</div>
+      <div class="puzzle-gate__check" aria-hidden="true">&#10003; Exit unlocked</div>
+      <div class="puzzle-gate__cta">
+        <a href="projects.html" class="btn btn--primary">Continue to Project Films &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="q">"Build the machine, <b>not be the cog.</b>"</p>
+  <p class="fine">Bayazid Habib Siddikee | Mechatronics Engineering, RUET</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+  <button class="x" aria-label="Close">&times;</button>
+  <button class="nv prev" aria-label="Previous">&#8249;</button>
+  <button class="nv next" aria-label="Next">&#8250;</button>
+  <img src="" alt="">
+  <p class="cap"></p>
+</div>
+
+<script src="scrollcraft.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+/* ===== certificate data from real asset filenames ===== */
+var CERT_DATA = [
+  {name:"AI Data Analysis",iss:"RIT Excelerate",dt:"2025",cat:"ai",file:"ai-data-analysis.jpg"},
+  {name:"Arduino Platform",iss:"Coursera",dt:"2025",cat:"embedded",file:"arduino-platform.jpg"},
+  {name:"Blockchain & Cryptocurrency",iss:"Coursera",dt:"2025",cat:"programming",file:"blockchain-cryptocurrency.jpg"},
+  {name:"C Programming Fundamentals",iss:"Coursera",dt:"2024",cat:"programming",file:"c-fundamental.jpg"},
+  {name:"Chatbot Python",iss:"Coursera",dt:"2025",cat:"ai",file:"chatbot-python.jpg"},
+  {name:"ChatGPT for Beginners",iss:"Coursera",dt:"2025",cat:"ai",file:"chatgpt-beginners.jpg"},
+  {name:"C Intermediate",iss:"Coursera",dt:"2025",cat:"programming",file:"c-intermediate.jpg"},
+  {name:"Computer Networking",iss:"Coursera",dt:"2024",cat:"systems",file:"computer-networking.jpg"},
+  {name:"Digital Marketing",iss:"Coursera",dt:"2024",cat:"design",file:"digital-marketing.jpg"},
+  {name:"Exploring C",iss:"Coursera",dt:"2025",cat:"programming",file:"exploring-c.jpg"},
+  {name:"Foundations of Cybersecurity",iss:"Coursera",dt:"2025",cat:"security",file:"foundations-cybersecurity.jpg"},
+  {name:"Functions in Python",iss:"Coursera",dt:"2025",cat:"programming",file:"functions-in-python.jpg"},
+  {name:"GitHub Tutorial",iss:"GitHub",dt:"2024",cat:"programming",file:"github-tutorial.jpg"},
+  {name:"Green Start-Ups",iss:"Coursera",dt:"2025",cat:"design",file:"green-startups.jpg"},
+  {name:"Industrial Training BSRM",iss:"BSRM",dt:"2025",cat:"embedded",file:"industrial-training-bsrm.jpg"},
+  {name:"Interfacing Arduino",iss:"Coursera",dt:"2025",cat:"embedded",file:"interfacing-arduino.jpg"},
+  {name:"Intro to CSS",iss:"Coursera",dt:"2024",cat:"design",file:"intro-css.jpg"},
+  {name:"Intro to Cyber Attacks",iss:"Coursera",dt:"2025",cat:"security",file:"intro-cyber-attacks.jpg"},
+  {name:"Intro to HTML",iss:"Coursera",dt:"2024",cat:"design",file:"intro-html.jpg"},
+  {name:"Intro to Management",iss:"Coursera",dt:"2025",cat:"design",file:"intro-management.jpg"},
+  {name:"Intro to C",iss:"Coursera",dt:"2024",cat:"programming",file:"intro-to-c.jpg"},
+  {name:"Intro to Java",iss:"Coursera",dt:"2025",cat:"programming",file:"intro-to-java.jpg"},
+  {name:"Intro to Python",iss:"Coursera",dt:"2024",cat:"programming",file:"intro-to-python.jpg"},
+  {name:"IoT & Cloud",iss:"Coursera",dt:"2025",cat:"embedded",file:"iot-cloud.jpg"},
+  {name:"IoT Devices",iss:"Coursera",dt:"2025",cat:"embedded",file:"iot-devices.jpg"},
+  {name:"Linux Commands & Shell",iss:"Coursera",dt:"2024",cat:"systems",file:"linux-commands-shell.jpg"},
+  {name:"Linux Server Management",iss:"Coursera",dt:"2025",cat:"systems",file:"linux-server-management.jpg"},
+  {name:"Market Research",iss:"Coursera",dt:"2025",cat:"design",file:"market-research.jpg"},
+  {name:"Networking Fundamentals",iss:"Coursera",dt:"2024",cat:"systems",file:"networking-fundamentals.jpg"},
+  {name:"Network Security",iss:"Coursera",dt:"2025",cat:"security",file:"network-security.jpg"},
+  {name:"Packet Switching",iss:"Coursera",dt:"2024",cat:"systems",file:"packet-switching.jpg"},
+  {name:"Principles of Leadership",iss:"Coursera",dt:"2025",cat:"design",file:"principles-leadership.jpg"},
+  {name:"Principles of Management",iss:"Coursera",dt:"2025",cat:"design",file:"principles-management.jpg"},
+  {name:"Prompt Engineering",iss:"Coursera",dt:"2025",cat:"ai",file:"prompt-engineering.jpg"},
+  {name:"Python Developer",iss:"Coursera",dt:"2025",cat:"programming",file:"python-developer.jpg"},
+  {name:"Python Fundamentals",iss:"Coursera",dt:"2024",cat:"programming",file:"python-fundamental.jpg"},
+  {name:"Python Intermediate",iss:"Coursera",dt:"2025",cat:"programming",file:"python-intermediate.jpg"},
+  {name:"SQL",iss:"Coursera",dt:"2025",cat:"programming",file:"sql.jpg"},
+  {name:"Tech for Everyone",iss:"Coursera",dt:"2025",cat:"programming",file:"tech-for-everyone.jpg"},
+  {name:"Types of Cyber Security",iss:"Coursera",dt:"2025",cat:"security",file:"types-cyber-security.jpg"},
+  {name:"UI/UX Design",iss:"Coursera",dt:"2025",cat:"design",file:"uiux-design.jpg"},
+  {name:"Unix Workbench",iss:"Coursera",dt:"2024",cat:"systems",file:"unix-workbench.jpg"}
+];
+
+(function renderCerts(){
+  var grid = document.getElementById('certGrid');
+  if (!grid) return;
+  var cats = {programming:'Programming',security:'Security',embedded:'Embedded',ai:'AI',systems:'Systems',design:'Design'};
+  CERT_DATA.forEach(function(c,i){
+    var div = document.createElement('div');
+    div.className = 'cert';
+    div.setAttribute('data-cat', c.cat);
+    div.innerHTML = '<div class="cert__img"><a class="lightbox-item" href="assets/certs/'+c.file+'" data-cap="'+c.name+' - '+c.iss+'" aria-label="View '+c.name+'"><img src="assets/certs/'+c.file+'" alt="'+c.name+'" loading="lazy"></a><div class="honors">'+cats[c.cat]+'</div></div><div class="cert__body"><h3>'+c.name+'</h3><div class="iss">'+c.iss+'</div><div class="dt">'+c.dt+'</div></div>';
+    grid.appendChild(div);
+  });
+  if (window._lbRebind) window._lbRebind();
+  if (window._bindFilters) window._bindFilters();
+})();
+
+/* ===== puzzle gate: bottom of page ===== */
+(function initPuzzle(id, gridId, statusId){
+  var root = document.getElementById(id);
+  if (!root) return;
+  var grid = document.getElementById(gridId);
+  var status = document.getElementById(statusId);
+  var solved = false;
+  var tiles = [];
+  function state(){ return tiles.map(function(t){return t?t.d:null;}); }
+  function render(){
+    grid.innerHTML = '';
+    tiles.forEach(function(t,i){
+      var el = document.createElement('div');
+      el.className = 'puzzle-tile' + (t.d === 0 ? ' empty' : '');
+      el.textContent = t.d === 0 ? '' : t.d;
+      el.setAttribute('role','gridcell');
+      el.dataset.idx = i;
+      grid.appendChild(el);
+    });
+  }
+  function solvedState(){ return tiles.every(function(t,i){return t.d === i;}); }
+  function shuffle(){
+    tiles = [0,1,2,3,4,5,6,7,8].map(function(d){return {d:d};});
+    for(var i=tiles.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=tiles[i];tiles[i]=tiles[j];tiles[j]=tmp;}
+    render();
+  }
+  function swap(i,j){
+    if(solved) return;
+    var tmp=tiles[i];tiles[i]=tiles[j];tiles[j]=tmp;
+    render();
+    if(solvedState()){
+      solved=true;
+      root.classList.add('solved');
+      if(status) status.textContent='Solved. Room unlocked.';
+    }
+  }
+  var drag=null,startIdx=-1;
+  function findIdx(el){
+    var t=el;while(t&&t!==grid){if(t.dataset&&t.dataset.idx!==undefined) return parseInt(t.dataset.idx,10);t=t.parentElement;}return -1;
+  }
+  function onDown(e){
+    if(solved) return;
+    var t=e.target.closest('.puzzle-tile');if(!t) return;
+    if(t.classList.contains('empty')) return;
+    startIdx=parseInt(t.dataset.idx,10);drag=t;
+    t.style.zIndex='2';
+  }
+  function onMove(e){
+    if(!drag||solved) return;
+    e.preventDefault();
+    var cx=(e.touches?e.touches[0].clientX:e.clientX);
+    var cy=(e.touches?e.touches[0].clientY:e.clientY);
+    drag.style.transform='scale(.96)';
+    var el=document.elementFromPoint(cx,cy);
+    if(!el) return;
+    var idx=findIdx(el);
+    if(idx>=0&&idx!==startIdx){
+      var dx=Math.abs(idx%3-startIdx%3),dy=Math.abs(Math.floor(idx/3)-Math.floor(startIdx/3));
+      if((dx+dy)===1) swap(startIdx,idx);
+    }
+  }
+  function onUp(){ if(drag){drag.style.transform='';drag.style.zIndex='';drag=null;} }
+  grid.addEventListener('mousedown',onDown);
+  grid.addEventListener('touchstart',onDown,{passive:true});
+  window.addEventListener('mousemove',onMove);
+  window.addEventListener('touchmove',onMove,{passive:false});
+  window.addEventListener('mouseup',onUp);
+  window.addEventListener('touchend',onUp);
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    solved=true;root.classList.add('solved');if(status)status.textContent='Reduced motion: room unlocked.';
+  }
+  shuffle();
+})('puzzleGate','puzzleGrid','puzzleStatus');
+
+(function initPuzzle2(){
+  var root=document.getElementById('puzzleGate2');if(!root)return;
+  var grid=document.getElementById('puzzleGrid2');var status=document.getElementById('puzzleStatus2');
+  var solved=false,tiles=[];
+  function render(){grid.innerHTML='';tiles.forEach(function(t,i){var el=document.createElement('div');el.className='puzzle-tile'+(t.d===0?' empty':'');el.textContent=t.d===0?'':t.d;el.setAttribute('role','gridcell');el.dataset.idx=i;grid.appendChild(el);});}
+  function solvedState(){return tiles.every(function(t,i){return t.d===i;});}
+  function swap(i,j){if(solved)return;var tmp=tiles[i];tiles[i]=tiles[j];tiles[j]=tmp;render();if(solvedState()){solved=true;root.classList.add('solved');if(status)status.textContent='Solved. Exit unlocked.';}}
+  var drag=null,startIdx=-1;
+  function findIdx(el){var t=el;while(t&&t!==grid){if(t.dataset&&t.dataset.idx!==undefined)return parseInt(t.dataset.idx,10);t=t.parentElement;}return -1;}
+  function onDown(e){if(solved)return;var t=e.target.closest('.puzzle-tile');if(!t||t.classList.contains('empty'))return;startIdx=parseInt(t.dataset.idx,10);drag=t;t.style.zIndex='2';}
+  function onMove(e){if(!drag||solved)return;e.preventDefault();var cx=(e.touches?e.touches[0].clientX:e.clientX),cy=(e.touches?e.touches[0].clientY:e.clientY);drag.style.transform='scale(.96)';var el=document.elementFromPoint(cx,cy);if(!el)return;var idx=findIdx(el);if(idx>=0&&idx!==startIdx){var dx=Math.abs(idx%3-startIdx%3),dy=Math.abs(Math.floor(idx/3)-Math.floor(startIdx/3));if((dx+dy)===1)swap(startIdx,idx);}}
+  function onUp(){if(drag){drag.style.transform='';drag.style.zIndex='';drag=null;}}
+  grid.addEventListener('mousedown',onDown);grid.addEventListener('touchstart',onDown,{passive:true});
+  window.addEventListener('mousemove',onMove);window.addEventListener('touchmove',onMove,{passive:false});
+  window.addEventListener('mouseup',onUp);window.addEventListener('touchend',onUp);
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){solved=true;root.classList.add('solved');if(status)status.textContent='Reduced motion: exit unlocked.';}
+  tiles=[0,1,2,3,4,5,6,7,8].map(function(d){return {d:d};});
+  for(var i=tiles.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=tiles[i];tiles[i]=tiles[j];tiles[j]=tmp;}
+  render();
+})();
+
+/* ===== lightbox rebind for injected certs ===== */
+window._lbRebind = (function(orig){
+  return function(){
+    if (typeof orig === 'function') orig();
+    var lb = document.getElementById('lightbox');
+    if (!lb) return;
+    var lbImg = lb.querySelector('img');
+    var lbCap = lb.querySelector('.cap');
+    var items = Array.prototype.slice.call(document.querySelectorAll('a.lightbox-item'));
+    var current = 0;
+    function show(i){current=(i+items.length)%items.length;var it=items[current];lbImg.src=it.getAttribute('href');lbImg.alt=it.getAttribute('data-cap')||'';if(lbCap)lbCap.textContent=it.getAttribute('data-cap')||'';lb.classList.add('open');document.body.style.overflow='hidden';}
+    function close(){lb.classList.remove('open');lbImg.src='';document.body.style.overflow='';}
+    items.forEach(function(it,idx){it.addEventListener('click',function(ev){ev.preventDefault();show(idx);});});
+    lb.querySelector('.x').addEventListener('click',close);
+    lb.querySelector('.nv.prev').addEventListener('click',function(){show(current-1);});
+    lb.querySelector('.nv.next').addEventListener('click',function(){show(current+1);});
+    lb.addEventListener('click',function(ev){if(ev.target===lb)close();});
+    document.addEventListener('keydown',function(ev){if(!lb.classList.contains('open'))return;if(ev.key==='Escape')close();if(ev.key==='ArrowLeft')show(current-1);if(ev.key==='ArrowRight')show(current+1);});
+  };
+})(window._lbRebind);
+
+/* ===== filter chips rebind ===== */
+window._bindFilters = (function(orig){
+  return function(){
+    var filterWrap = document.querySelector('.filters');
+    if (!filterWrap) return;
+    var chips = filterWrap.querySelectorAll('.chip');
+    var certCards = document.querySelectorAll('.cert');
+    chips.forEach(function(chip){
+      chip.addEventListener('click',function(){
+        chips.forEach(function(c){c.classList.remove('is-active');});
+        chip.classList.add('is-active');
+        var f = chip.getAttribute('data-filter');
+        certCards.forEach(function(card){card.classList.toggle('is-hidden', f!=='all' && card.getAttribute('data-cat')!==f);});
+      });
+    });
+  };
+})(window._bindFilters);
+</script>
+</body>
+</html>

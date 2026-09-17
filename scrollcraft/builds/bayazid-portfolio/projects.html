@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Project Films - Bayazid Habib Siddikee</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FF5A3D'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%2315110F' font-family='system-ui' font-weight='800' font-size='18'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--sc-canvas:#0A0806;--sc-surface:#16110E;--sc-ink:#F5EBDD;--sc-ink-soft:#A2968A;--sc-accent:#FF5A3D;--sc-accent-ink:#15110F;--sc-font-display:"Playfair Display",Georgia,serif;--sc-font-text:"Space Grotesk",system-ui,sans-serif;--sc-font-mono:"JetBrains Mono",ui-monospace,monospace}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--sc-canvas);color:var(--sc-ink);font-family:var(--sc-font-text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--sc-accent);color:var(--sc-accent-ink)}
+a{color:inherit;text-decoration:none}
+img,iframe,video{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--sc-accent);outline-offset:3px;border-radius:4px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 5vw;background:rgba(10,8,6,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(245,235,221,.07)}
+.nav__brand{display:flex;align-items:center;gap:10px;font-family:var(--sc-font-mono);font-weight:700;font-size:14px;letter-spacing:.06em}
+.nav__mark{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:linear-gradient(135deg,var(--sc-accent),#a8321e);color:var(--sc-accent-ink);font-size:14px;box-shadow:0 0 14px rgba(255,90,61,.25)}
+.nav__links{display:flex;gap:4px;list-style:none}
+.nav__links a{font-family:var(--sc-font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--sc-ink-soft);padding:8px 14px;border-radius:8px;transition:.22s}
+.nav__links a:hover{color:var(--sc-ink);background:rgba(245,235,221,.06)}
+.nav__links a.is-active{color:var(--sc-accent);background:rgba(255,90,61,.1)}
+.nav__cta{font-family:var(--sc-font-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sc-accent-ink)!important;background:var(--sc-accent);padding:9px 16px;border-radius:9px;box-shadow:0 4px 18px rgba(255,90,61,.25);transition:.22s}
+.nav__cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.nav__burger{display:none;background:none;border:1px solid rgba(245,235,221,.14);color:var(--sc-ink);font-family:var(--sc-font-mono);font-size:15px;padding:7px 12px;border-radius:8px;cursor:pointer}
+
+/* SECTIONS */
+.section{padding:96px 5vw;max-width:1200px;margin:0 auto}
+.section__tag{font-family:var(--sc-font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sc-accent);display:inline-flex;align-items:center;gap:10px;margin-bottom:12px}
+.section__tag::before{content:"";width:24px;height:1px;background:var(--sc-accent)}
+.section__title{font-family:var(--sc-font-display);font-size:clamp(26px,3.8vw,42px);line-height:1.12;font-weight:700;margin-bottom:14px}
+.section__title em{color:var(--sc-accent);font-style:italic}
+.section__sub{color:var(--sc-ink-soft);max-width:64ch;font-size:15.5px;line-height:1.7}
+
+/* VIDEO CARDS */
+.vid{background:var(--sc-surface);border:1px solid rgba(245,235,221,.08);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+.vid:hover{transform:translateY(-5px);border-color:rgba(255,90,61,.45);box-shadow:0 18px 50px rgba(0,0,0,.4)}
+.vid__thumb{position:relative;aspect-ratio:16/9;cursor:pointer;overflow:hidden}
+.vid__thumb .ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:linear-gradient(135deg,#1a1410,#0f0c09);padding:24px;text-align:center}
+.vid__thumb .pbtn{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--sc-accent);color:var(--sc-accent-ink);font-size:20px;padding-left:4px;box-shadow:0 0 0 0 rgba(255,90,61,.45);animation:ring 2.2s infinite;transition:.25s}
+.vid:hover .pbtn{transform:scale(1.08);filter:brightness(1.1)}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(255,90,61,.45)}70%{box-shadow:0 0 0 22px rgba(255,90,61,0)}100%{box-shadow:0 0 0 0 rgba(255,90,61,0)}}
+.vid__thumb iframe{width:100%;height:100%;border:0;display:block}
+.vid__meta{padding:18px 20px 20px;display:flex;flex-direction:column;gap:7px;flex:1}
+.vid__meta h3{font-size:15.5px;font-weight:600;line-height:1.4}
+.vid__meta .m{font-family:var(--sc-font-mono);font-size:10.5px;letter-spacing:.1em;color:var(--sc-ink-soft);text-transform:uppercase;display:flex;gap:14px;flex-wrap:wrap}
+.vid__meta .m b{color:var(--sc-accent);font-weight:600}
+.vid__meta .desc{font-size:13.5px;color:var(--sc-ink-soft);line-height:1.6;margin-top:4px}
+
+/* PUZZLE GATE */
+.puzzle-gate{background:var(--sc-surface);border:1px solid rgba(245,235,221,.1);border-radius:16px;padding:32px;max-width:420px;margin:0 auto;text-align:center}
+.puzzle-gate__label{font-family:var(--sc-font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sc-accent);margin-bottom:18px}
+.puzzle-gate__sub{font-size:13px;color:var(--sc-ink-soft);margin-top:10px;line-height:1.6}
+.puzzle-gate__cta{display:none;margin-top:18px}
+.puzzle-gate.solved{border-color:rgba(61,220,132,.5);box-shadow:0 0 40px rgba(61,220,132,.1)}
+.puzzle-gate.solved .puzzle-gate__label{color:#3ddc84}
+.puzzle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;width:240px;height:240px;margin:0 auto;user-select:none;-webkit-user-select:none;touch-action:none}
+.puzzle-tile{background:var(--sc-surface);border:1px solid rgba(245,235,221,.12);border-radius:10px;display:grid;place-items:center;font-family:var(--sc-font-display);font-size:28px;font-weight:700;color:var(--sc-ink);cursor:grab;transition:transform .18s ease,background .18s ease,box-shadow .18s ease;min-height:44px;min-width:44px}
+.puzzle-tile:hover{background:#1e1814;border-color:rgba(255,90,61,.4);box-shadow:0 0 18px rgba(255,90,61,.12)}
+.puzzle-tile:active{cursor:grabbing;transform:scale(.96);background:#241c16}
+.puzzle-tile.empty{cursor:default;background:transparent;border-color:rgba(245,235,221,.05);box-shadow:none;color:transparent}
+.puzzle-gate__status{margin-top:14px;font-family:var(--sc-font-mono);font-size:11.5px;color:var(--sc-ink-soft);letter-spacing:.08em}
+.puzzle-gate__check{display:none;font-size:28px;color:#3ddc84;margin-top:10px}
+.puzzle-gate.solved .puzzle-gate__check{display:block}
+.puzzle-gate.solved .puzzle-gate__status{color:#3ddc84}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+.contact-card{background:var(--sc-surface);border:1px solid rgba(245,235,221,.08);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:14px;transition:.25s}
+.contact-card:hover{border-color:rgba(255,90,61,.4);transform:translateY(-4px)}
+.contact-card h3{font-family:var(--sc-font-display);font-size:20px;font-weight:600;display:flex;align-items:center;gap:10px}
+.contact-card h3 span{font-size:22px}
+.contact-card .addr{font-family:var(--sc-font-mono);font-size:13px;color:var(--sc-ink-soft);word-break:break-all;line-height:1.6}
+.contact-card .addr a{color:var(--sc-accent);transition:.2s}
+.contact-card .addr a:hover{filter:brightness(1.2)}
+
+/* FOOTER */
+.footer{border-top:1px solid rgba(245,235,221,.07);padding:44px 5vw;text-align:center}
+.footer .q{font-family:var(--sc-font-display);font-style:italic;font-size:15px;color:var(--sc-ink-soft);margin-bottom:10px}
+.footer .q b{color:var(--sc-accent)}
+.footer .fine{font-family:var(--sc-font-mono);font-size:10.5px;letter-spacing:.14em;color:var(--sc-ink-soft);text-transform:uppercase;opacity:.7}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+@media (max-width:1080px){.vid-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:860px){.nav__links{position:fixed;top:60px;right:0;left:0;flex-direction:column;gap:2px;background:rgba(10,8,6,.98);border-bottom:1px solid rgba(245,235,221,.08);padding:12px 5vw 18px;display:none}.nav__links.open{display:flex}.nav__burger{display:block}.contact-grid{grid-template-columns:1fr}}
+@media (max-width:640px){.vid-grid{grid-template-columns:1fr}.section{padding:70px 5vw}.puzzle-grid{width:200px;height:200px}}
+</style>
+</head>
+<body>
+
+<nav class="nav" role="navigation" aria-label="Primary">
+  <div class="nav__brand"><div class="nav__mark" aria-hidden="true">B</div><span>BAYAZID HS</span></div>
+  <ul class="nav__links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html" class="is-active">Projects</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="index.html#contact" class="nav__cta">Open a channel</a></li>
+  </ul>
+  <button class="nav__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+</nav>
+
+<!-- ===== ACT 1: Curiosity - Title ===== -->
+<section data-sc-act="flow" data-sc-span="1.1">
+  <div style="min-height:100svh;display:flex;align-items:center;padding:130px 5vw 60px">
+    <div class="section" style="width:100%">
+      <div class="section__tag reveal">Act 01 - The Project Films Room</div>
+      <h1 class="section__title reveal" style="font-size:clamp(34px,5.4vw,64px);line-height:1.06">10 project films.<br>Each one built from <em>scratch</em>.</h1>
+      <p class="section__sub reveal">From an AI-owned operating system to a Telegram-controlled CNC plotter. Every film is a system I designed, coded, shipped, and filmed.</p>
+      <div class="reveal" style="margin-top:28px;display:flex;flex-wrap:wrap;gap:14px">
+        <div style="background:var(--sc-surface);border:1px solid rgba(245,235,221,.08);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:12px"><span style="font-family:var(--sc-font-mono);font-size:28px;font-weight:700;color:var(--sc-accent)">10</span><span style="font-family:var(--sc-font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--sc-ink-soft)">Project Films</span></div>
+        <div style="background:var(--sc-surface);border:1px solid rgba(245,235,221,.08);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:12px"><span style="font-family:var(--sc-font-mono);font-size:28px;font-weight:700;color:var(--sc-accent)">15+</span><span style="font-family:var(--sc-font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--sc-ink-soft)">Systems Built</span></div>
+        <div style="background:var(--sc-surface);border:1px solid rgba(245,235,221,.08);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:12px"><span style="font-family:var(--sc-font-mono);font-size:28px;font-weight:700;color:var(--sc-accent)">2</span><span style="font-family:var(--sc-font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--sc-ink-soft)">Internships</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACT 2: Obsession - The 10 Project Films (peak, span ~2.8vh) ===== -->
+<section data-sc-act="pin" data-sc-span="2.8" data-sc-dwell="0.25">
+  <div data-sc-stage class="sc-stage" style="min-height:100svh;display:flex;align-items:center">
+    <div class="section" style="width:100%">
+      <div class="section__tag reveal">Act 02 - The Films</div>
+      <h2 class="section__title reveal">10 builds.<br>Every one <em>filmed</em>.</h2>
+      <p class="section__sub reveal">Each project is a film: the problem, the build, the moment it actually worked. Click a card to watch.</p>
+
+      <div class="vid-grid reveal" style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px" id="projectGrid">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACT 3: Resolve - Back / Connect ===== -->
+<section data-sc-act="pin" data-sc-span="1.6" data-sc-dwell="0.2">
+  <div data-sc-stage class="sc-stage" style="min-height:100svh;display:flex;align-items:center">
+    <div class="section" style="width:100%">
+      <div class="section__tag reveal">Act 03 - Resolve</div>
+      <h2 class="section__title reveal">Keep <em>building</em>.</h2>
+      <p class="section__sub reveal">The films end here. The connection continues.</p>
+      <div class="contact-grid reveal">
+        <div class="contact-card">
+          <h3><span aria-hidden="true">&#9993;</span> Email</h3>
+          <div class="addr"><a href="mailto:bayazidhabib@example.com">bayazidhabib@example.com</a></div>
+          <p style="font-size:13.5px;color:var(--sc-ink-soft);line-height:1.6">Best for collaboration or research chat.</p>
+        </div>
+        <div class="contact-card">
+          <h3><span aria-hidden="true">&#9733;</span> GitHub</h3>
+          <div class="addr"><a href="https://github.com/BayazidHabibSiddikee" target="_blank" rel="noopener">github.com/BayazidHabibSiddikee</a></div>
+          <p style="font-size:13.5px;color:var(--sc-ink-soft);line-height:1.6">Source code and project films.</p>
+        </div>
+        <div class="contact-card">
+          <h3><span aria-hidden="true">&#9679;</span> LinkedIn</h3>
+          <div class="addr"><a href="https://linkedin.com/in/bayazidhabibsiddikee" target="_blank" rel="noopener">linkedin.com/in/bayazidhabibsiddikee</a></div>
+          <p style="font-size:13.5px;color:var(--sc-ink-soft);line-height:1.6">Professional updates and network.</p>
+        </div>
+        <div class="contact-card">
+          <h3><span aria-hidden="true">&#9670;</span> Resume</h3>
+          <div class="addr"><a href="assets/docs/Bayazid_Habib_Siddikee_Resume.pdf" target="_blank" rel="noopener">Download PDF</a></div>
+          <p style="font-size:13.5px;color:var(--sc-ink-soft);line-height:1.6">Full timeline and certifications.</p>
+        </div>
+      </div>
+      <div class="reveal" style="margin-top:28px"><a href="index.html" class="btn btn--ghost">&larr; Back to the vault</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PUZZLE GATE: Room gate ===== -->
+<section data-sc-act="flow" data-sc-span="0.8" style="background:var(--sc-surface)">
+  <div style="padding:60px 5vw 40px;max-width:1200px;margin:0 auto">
+    <div class="puzzle-gate reveal" id="puzzleGate">
+      <div class="puzzle-gate__label">Room gate - solve to leave</div>
+      <div class="puzzle-grid" id="puzzleGrid" role="grid" aria-label="Sliding tile puzzle"></div>
+      <div class="puzzle-gate__status" id="puzzleStatus">Drag tiles to order them: 1 2 3 / 4 5 6 / 7 8 [ ]</div>
+      <div class="puzzle-gate__check" aria-hidden="true">&#10003; Exit unlocked</div>
+      <div class="puzzle-gate__cta">
+        <a href="skills.html" class="btn btn--primary">Continue to Skills Matrix &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p class="q">"Build the machine, <b>not be the cog.</b>"</p>
+  <p class="fine">Bayazid Habib Siddikee - Mechatronics Engineering, RUET</p>
+</footer>
+
+<script src="scrollcraft.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+/* ===== project data ===== */
+var PROJECTS = [
+  {name:"Marin_OS",desc:"Debian-based OS where an AI owns the system. Custom init, package layer, and a terminal that talks back.",id:"PLACEHOLDER1",tag:"OS"},
+  {name:"SwordFish",desc:"C++ browser built for researchers. 20+ built-in tools, fast render, zero bloat.",id:"PLACEHOLDER2",tag:"Browser"},
+  {name:"CNC Math Plotter",desc:"Telegram-controlled CNC that draws equations. Send a formula, get a plot.",id:"PLACEHOLDER3",tag:"Hardware"},
+  {name:"Marin_Kitagawa_v3",desc:"FastAPI + LangChain cognitive cycle with a VRM avatar. The assistant has a face.",id:"PLACEHOLDER4",tag:"AI"},
+  {name:"web_based_terminal",desc:"Flash ATmega chips from a browser. No more USB bootloaders in the field.",id:"PLACEHOLDER5",tag:"Embedded"},
+  {name:"Marin_Evil_Sentinel",desc:"AI that enforces discipline and removes distractions. It blocks the sites you told it to.",id:"PLACEHOLDER6",tag:"AI"},
+  {name:"SwordFM",desc:"File manager with a terminal-native workflow. Keyboard-first, fast, extensible.",id:"PLACEHOLDER7",tag:"Systems"},
+  {name:"SwordWM",desc:"Tiling window manager for X11. Written from scratch, config in plain text.",id:"PLACEHOLDER8",tag:"Systems"},
+  {name:"AI Data Analysis",desc:"Star Performer at RIT Excelerate. Turn raw data into insight in one pipeline.",id:"PLACEHOLDER9",tag:"Data"},
+  {name:"CipherVault",desc:"Encrypted note store with a CLI and a web front-end. Because secrets need a home.",id:"PLACEHOLDER10",tag:"Security"}
+];
+
+(function renderProjects(){
+  var grid = document.getElementById('projectGrid');
+  if (!grid) return;
+  PROJECTS.forEach(function(p,i){
+    var div = document.createElement('div');
+    div.className = 'vid';
+    div.innerHTML = '<div class="vid__thumb" data-id="'+p.id+'" aria-label="Play '+p.name+'"><div class="ph"><div class="pbtn" aria-hidden="true">&#9654;</div><div><div style="font-family:var(--sc-font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sc-accent);margin-bottom:8px">'+p.tag+'</div><div style="font-family:var(--sc-font-display);font-size:20px;font-weight:600;line-height:1.3;color:var(--sc-ink)">'+p.name+'</div></div></div></div><div class="vid__meta"><h3>'+p.name+'</h3><p class="desc">'+p.desc+'</p><div class="m">Video coming soon</div></div>';
+    grid.appendChild(div);
+  });
+})();
+
+/* lazy load youtube on click */
+(function(){
+  document.querySelectorAll('.vid__thumb').forEach(function(thumb){
+    thumb.addEventListener('click',function(){
+      var id=thumb.getAttribute('data-id');
+      if(!id||id.indexOf('PLACEHOLDER')===0){alert('Video coming soon. YouTube ID: '+id);return;}
+      var iframe=document.createElement('iframe');
+      iframe.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';
+      iframe.allow='autoplay;encrypted-media';
+      iframe.setAttribute('allowfullscreen','');
+      iframe.title=thumb.getAttribute('aria-label')||'Project video';
+      thumb.innerHTML='';thumb.appendChild(iframe);
+    });
+  });
+})();
+
+/* ===== puzzle gate ===== */
+(function initPuzzle(id,gridId,statusId){
+  var root=document.getElementById(id);if(!root)return;
+  var grid=document.getElementById(gridId);var status=document.getElementById(statusId);
+  var solved=false,tiles=[];
+  function render(){grid.innerHTML='';tiles.forEach(function(t,i){var el=document.createElement('div');el.className='puzzle-tile'+(t.d===0?' empty':'');el.textContent=t.d===0?'':t.d;el.setAttribute('role','gridcell');el.dataset.idx=i;grid.appendChild(el);});}
+  function solvedState(){return tiles.every(function(t,i){return t.d===i;});}
+  function swap(i,j){if(solved)return;var tmp=tiles[i];tiles[i]=tiles[j];tiles[j]=tmp;render();if(solvedState()){solved=true;root.classList.add('solved');if(status)status.textContent='Solved. Exit unlocked.';}}
+  var drag=null,startIdx=-1;
+  function findIdx(el){var t=el;while(t&&t!==grid){if(t.dataset&&t.dataset.idx!==undefined)return parseInt(t.dataset.idx,10);t=t.parentElement;}return -1;}
+  function onDown(e){if(solved)return;var t=e.target.closest('.puzzle-tile');if(!t||t.classList.contains('empty'))return;startIdx=parseInt(t.dataset.idx,10);drag=t;t.style.zIndex='2';}
+  function onMove(e){if(!drag||solved)return;e.preventDefault();var cx=(e.touches?e.touches[0].clientX:e.clientX),cy=(e.touches?e.touches[0].clientY:e.clientY);drag.style.transform='scale(.96)';var el=document.elementFromPoint(cx,cy);if(!el)return;var idx=findIdx(el);if(idx>=0&&idx!==startIdx){var dx=Math.abs(idx%3-startIdx%3),dy=Math.abs(Math.floor(idx/3)-Math.floor(startIdx/3));if((dx+dy)===1)swap(startIdx,idx);}}
+  function onUp(){if(drag){drag.style.transform='';drag.style.zIndex='';drag=null;}}
+  grid.addEventListener('mousedown',onDown);grid.addEventListener('touchstart',onDown,{passive:true});
+  window.addEventListener('mousemove',onMove);window.addEventListener('touchmove',onMove,{passive:false});
+  window.addEventListener('mouseup',onUp);window.addEventListener('touchend',onUp);
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){solved=true;root.classList.add('solved');if(status)status.textContent='Reduced motion: exit unlocked.';}
+  tiles=[0,1,2,3,4,5,6,7,8].map(function(d){return {d:d};});
+  for(var i=tiles.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=tiles[i];tiles[i]=tiles[j];tiles[j]=tmp;}
+  render();
+})('puzzleGate','puzzleGrid','puzzleStatus');
+</script>
+</body>
+</html>

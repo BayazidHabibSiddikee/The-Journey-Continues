@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skills Matrix - Bayazid Habib Siddikee</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FF5A3D'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%2315110F' font-family='system-ui' font-weight='800' font-size='18'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--sc-canvas:#0A0806;--sc-surface:#16110E;--sc-ink:#F5EBDD;--sc-ink-soft:#A2968A;--sc-accent:#FF5A3D;--sc-accent-ink:#15110F;--sc-font-display:"Playfair Display",Georgia,serif;--sc-font-text:"Space Grotesk",system-ui,sans-serif;--sc-font-mono:"JetBrains Mono",ui-monospace,monospace}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--sc-canvas);color:var(--sc-ink);font-family:var(--sc-font-text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--sc-accent);color:var(--sc-accent-ink)}
+a{color:inherit;text-decoration:none}
+img,iframe,video{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--sc-accent);outline-offset:3px;border-radius:4px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 5vw;background:rgba(10,8,6,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(245,235,221,.07)}
+.nav__brand{display:flex;align-items:center;gap:10px;font-family:var(--sc-font-mono);font-weight:700;font-size:14px;letter-spacing:.06em}
+.nav__mark{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:linear-gradient(135deg,var(--sc-accent),#a8321e);color:var(--sc-accent-ink);font-size:14px;box-shadow:0 0 14px rgba(255,90,61,.25)}
+.nav__links{display:flex;gap:4px;list-style:none}
+.nav__links a{font-family:var(--sc-font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--sc-ink-soft);padding:8px 14px;border-radius:8px;transition:.22s}
+.nav__links a:hover{color:var(--sc-ink);background:rgba(245,235,221,.06)}
+.nav__links a.is-active{color:var(--sc-accent);background:rgba(255,90,61,.1)}
+.nav__cta{font-family:var(--sc-font-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sc-accent-ink)!important;background:var(--sc-accent);padding:9px 16px;border-radius:9px;box-shadow:0 4px 18px rgba(255,90,61,.25);transition:.22s}
+.nav__cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.nav__burger{display:none;background:none;border:1px solid rgba(245,235,221,.14);color:var(--sc-ink);font-family:var(--sc-font-mono);font-size:15px;padding:7px 12px;border-radius:8px;cursor:pointer}
+
+/* SECTIONS */
+.section{padding:96px 5vw;max-width:1200px;margin:0 auto}
+.section__tag{font-family:var(--sc-font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sc-accent);display:inline-flex;align-items:center;gap:10px;margin-bottom:12px}
+.section__tag::before{content:"";width:24px;height:1px;background:var(--sc-accent)}
+.section__title{font-family:var(--sc-font-display);font-size:clamp(26px,3.8vw,42px);line-height:1.12;font-weight:700;margin-bottom:14px}
+.section__title em{color:var(--sc-accent);font-style:italic}
+.section__sub{color:var(--sc-ink-soft);max-width:64ch;font-size:15.5px;line-height:1.7}
+
+/* SKILL CARDS */
+.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px}
+.skill-card{background:var(--sc-surface);border:1px solid rgba(245,235,221,.08);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden;transition:.25s}
+.skill-card:hover{border-color:rgba(255,90,61,.4);transform:translateY(-4px);box-shadow:0 16px 44px rgba(0,0,0,.4)}
+.skill-card__head{display:flex;align-items:center;gap:13px}
+.skill-card__head .ico{font-size:22px;width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:rgba(255,90,61,.1);border:1px solid rgba(255,90,61,.25);color:var(--sc-accent)}
+.skill-card__head h3{font-size:18px;font-weight:600}
+.skill-card>p{color:var(--sc-ink-soft);font-size:14px;line-height:1.6;margin-bottom:4px}
+.skillrows{display:flex;flex-direction:column;gap:14px}
+.skillrow .top{display:grid;grid-template-columns:150px 1fr 44px;gap:12px;align-items:center}
+.skillrow .name{font-family:var(--sc-font-mono);font-size:12px;color:var(--sc-ink);display:flex;align-items:center;gap:8px}
+.skillrow .bar{height:5px;border-radius:4px;background:rgba(245,235,221,.07);overflow:hidden}
+.skillrow .bar i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#a8321e,var(--sc-accent));width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+.skillrow .pct{font-family:var(--sc-font-mono);font-size:11px;color:var(--sc-accent);text-align:right}
+.skillrow .desc{font-size:12px;color:var(--sc-ink-soft);line-height:1.55;margin-top:5px;grid-column:1/-1}
+
+/* PUZZLE GATE */
+.puzzle-gate{background:var(--sc-surface);border:1px solid rgba(245,235,221,.1);border-radius:16px;padding:32px;max-width:420px;margin:0 auto;text-align:center}
+.puzzle-gate__label{font-family:var(--sc-font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sc-accent);margin-bottom:18px}
+.puzzle-gate__sub{font-size:13px;color:var(--sc-ink-soft);margin-top:10px;line-height:1.6}
+.puzzle-gate__cta{display:none;margin-top:18px}
+.puzzle-gate.solved{border-color:rgba(61,220,132,.5);box-shadow:0 0 40px rgba(61,220,132,.1)}
+.puzzle-gate.solved .puzzle-gate__label{color:#3ddc84}
+.puzzle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;width:240px;height:240px;margin:0 auto;user-select:none;-webkit-user-select:none;touch-action:none}
+.puzzle-tile{background:var(--sc-surface);border:1px solid rgba(245,235,221,.12);border-radius:10px;display:grid;place-items:center;font-family:var(--sc-font-display);font-size:28px;font-weight:700;color:var(--sc-ink);cursor:grab;transition:transform .18s ease,background .18s ease,box-shadow .18s ease;min-height:44px;min-width:44px}
+.puzzle-tile:hover{background:#1e1814;border-color:rgba(255,90,61,.4);box-shadow:0 0 18px rgba(255,90,61,.12)}
+.puzzle-tile:active{cursor:grabbing;transform:scale(.96);background:#241c16}
+.puzzle-tile.empty{cursor:default;background:transparent;border-color:rgba(245,235,221,.05);box-shadow:none;color:transparent}
+.puzzle-gate__status{margin-top:14px;font-family:var(--sc-font-mono);font-size:11.5px;color:var(--sc-ink-soft);letter-spacing:.08em}
+.puzzle-gate__check{display:none;font-size:28px;color:#3ddc84;margin-top:10px}
+.puzzle-gate.solved .puzzle-gate__check{display:block}
+.puzzle-gate.solved .puzzle-gate__status{color:#3ddc84}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+.contact-card{background:var(--sc-surface);border:1px solid rgba(245,235,221,.08);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:14px;transition:.25s}
+.contact-card:hover{border-color:rgba(255,90,61,.4);transform:translateY(-4px)}
+.contact-card h3{font-family:var(--sc-font-display);font-size:20px;font-weight:600;display:flex;align-items:center;gap:10px}
+.contact-card h3 span{font-size:22px}
+.contact-card .addr{font-family:var(--sc-font-mono);font-size:13px;color:var(--sc-ink-soft);word-break:break-all;line-height:1.6}
+.contact-card .addr a{color:var(--sc-accent);transition:.2s}
+.contact-card .addr a:hover{filter:brightness(1.2)}
+
+/* FOOTER */
+.footer{border-top:1px solid rgba(245,235,221,.07);padding:44px 5vw;text-align:center}
+.footer .q{font-family:var(--sc-font-display);font-style:italic;font-size:15px;color:var(--sc-ink-soft);margin-bottom:10px}
+.footer .q b{color:var(--sc-accent)}
+.footer .fine{font-family:var(--sc-font-mono);font-size:10.5px;letter-spacing:.14em;color:var(--sc-ink-soft);text-transform:uppercase;opacity:.7}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+@media (max-width:1080px){.skill-grid{grid-template-columns:1fr}}
+@media (max-width:860px){.nav__links{position:fixed;top:60px;right:0;left:0;flex-direction:column;gap:2px;background:rgba(10,8,6,.98);border-bottom:1px solid rgba(245,235,221,.08);padding:12px 5vw 18px;display:none}.nav__links.open{display:flex}.nav__burger{display:block}.contact-grid{grid-template-columns:1fr}}
+@media (max-width:640px){.section{padding:70px 5vw}.puzzle-grid{width:200px;height:200px}.skillrow .top{grid-template-columns:1fr;gap:6px}.skillrow .pct{text-align:left}}
+</style>
+</head>
+<body>
+
+<nav class="nav" role="navigation" aria-label="Primary">
+  <div class="nav__brand"><div class="nav__mark" aria-hidden="true">B</div><span>BAYAZID HS</span></div>
+  <ul class="nav__links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="skills.html" class="is-active">Skills</a></li>
+    <li><a href="index.html#contact" class="nav__cta">Open a channel</a></li>
+  </ul>
+  <button class="nav__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+</nav>
+
+<!-- ===== ACT 1: Curiosity - Title ===== -->
+<section data-sc-act="flow" data-sc-span="1.1">
+  <div style="min-height:100svh;display:flex;align-items:center;padding:130px 5vw 60px">
+    <div class="section" style="width:100%">
+      <div class="section__tag reveal">Act 01 - The Skills Matrix</div>
+      <h1 class="section__title reveal" style="font-size:clamp(34px,5.4vw,64px);line-height:1.06">What I can <em>actually</em> do.</h1>
+      <p class="section__sub reveal">Not a laundry list. Every bar below maps to a system I shipped, a certificate I earned, or a problem I solved at 2 a.m.</p>
+      <div class="reveal" style="margin-top:28px"><a href="#skills-grid" class="btn btn--primary">Enter the matrix</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACT 2: Confidence - Skills Grid (peak, span ~2.8vh) ===== -->
+<section id="skills-grid" data-sc-act="pin" data-sc-span="2.8" data-sc-dwell="0.25">
+  <div data-sc-stage class="sc-stage" style="min-height:100svh;display:flex;align-items:center">
+    <div class="section" style="width:100%">
+      <div class="section__tag reveal">Act 02 - Confidence</div>
+      <h2 class="section__title reveal">The skills, in <em>grid</em>.</h2>
+      <p class="section__sub reveal">Eight categories. Each bar is a real skill I use in production.</p>
+      <div class="skill-grid reveal" id="skillGrid">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACT 3: Resolve - Connect ===== -->
+<section data-sc-act="pin" data-sc-span="1.6" data-sc-dwell="0.2">
+  <div data-sc-stage class="sc-stage" style="min-height:100svh;display:flex;align-items:center">
+    <div class="section" style="width:100%">
+      <div class="section__tag reveal">Act 03 - Resolve</div>
+      <h2 class="section__title reveal">Keep <em>building</em>.</h2>
+      <p class="section__sub reveal">The matrix ends here. The connection continues.</p>
+      <div class="contact-grid reveal">
+        <div class="contact-card">
+          <h3><span aria-hidden="true">&#9993;</span> Email</h3>
+          <div class="addr"><a href="mailto:bayazidhabib@example.com">bayazidhabib@example.com</a></div>
+          <p style="font-size:13.5px;color:var(--sc-ink-soft);line-height:1.6">Best for collaboration or research chat.</p>
+        </div>
+        <div class="contact-card">
+          <h3><span aria-hidden="true">&#9733;</span> GitHub</h3>
+          <div class="addr"><a href="https://github.com/BayazidHabibSiddikee" target="_blank" rel="noopener">github.com/BayazidHabibSiddikee</a></div>
+          <p style="font-size:13.5px;color:var(--sc-ink-soft);line-height:1.6">Source code and project films.</p>
+        </div>
+        <div class="contact-card">
+          <h3><span aria-hidden="true">&#9679;</span> LinkedIn</h3>
+          <div class="addr"><a href="https://linkedin.com/in/bayazidhabibsiddikee" target="_blank" rel="noopener">linkedin.com/in/bayazidhabibsiddikee</a></div>
+          <p style="font-size:13.5px;color:var(--sc-ink-soft);line-height:1.6">Professional updates and network.</p>
+        </div>
+        <div class="contact-card">
+          <h3><span aria-hidden="true">&#9670;</span> Resume</h3>
+          <div class="addr"><a href="assets/docs/Bayazid_Habib_Siddikee_Resume.pdf" target="_blank" rel="noopener">Download PDF</a></div>
+          <p style="font-size:13.5px;color:var(--sc-ink-soft);line-height:1.6">Full timeline and certifications.</p>
+        </div>
+      </div>
+      <div class="reveal" style="margin-top:28px"><a href="index.html" class="btn btn--ghost">&larr; Back to the vault</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PUZZLE GATE: Room gate ===== -->
+<section data-sc-act="flow" data-sc-span="0.8" style="background:var(--sc-surface)">
+  <div style="padding:60px 5vw 40px;max-width:1200px;margin:0 auto">
+    <div class="puzzle-gate reveal" id="puzzleGate">
+      <div class="puzzle-gate__label">Room gate - solve to leave</div>
+      <div class="puzzle-grid" id="puzzleGrid" role="grid" aria-label="Sliding tile puzzle"></div>
+      <div class="puzzle-gate__status" id="puzzleStatus">Drag tiles to order them: 1 2 3 / 4 5 6 / 7 8 [ ]</div>
+      <div class="puzzle-gate__check" aria-hidden="true">&#10003; Exit unlocked</div>
+      <div class="puzzle-gate__cta">
+        <a href="index.html" class="btn btn--primary">Return to Entry Room &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p class="q">"Build the machine, <b>not be the cog.</b>"</p>
+  <p class="fine">Bayazid Habib Siddikee - Mechatronics Engineering, RUET</p>
+</footer>
+
+<script src="scrollcraft.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+/* ===== skills data ===== */
+var SKILLS = [
+  {group:"Programming",ico:"&#128187;",items:[
+    {name:"Python",pct:92,desc:"Expert level. Used in OS tooling, AI pipelines, and automation."},
+    {name:"C",pct:85,desc:"Advanced. CNC controller firmware, browser internals, embedded drivers."},
+    {name:"Java",pct:68,desc:"Intermediate. Object-oriented design and coursework projects."},
+    {name:"SQL",pct:72,desc:"Intermediate. Data analysis, schema design, query optimization."},
+    {name:"HTML / CSS",pct:80,desc:"Intermediate. This portfolio, UI components, responsive layouts."}
+  ]},
+  {group:"Embedded & IoT",ico:"&#128268;",items:[
+    {name:"Arduino",pct:88,desc:"Prototyping, sensor interfacing, rapid hardware iteration."},
+    {name:"ATmega",pct:78,desc:"Low-level programming, flash tooling, register-level control."},
+    {name:"IoT Devices",pct:82,desc:"Cloud-connected sensors, MQTT, edge-to-cloud pipelines."},
+    {name:"Sensor Interfacing",pct:80,desc:"Analog, digital, I2C, SPI. Calibration and noise handling."}
+  ]},
+  {group:"AI & LLMs",ico:"&#129302;",items:[
+    {name:"Prompt Engineering",pct:88,desc:"System prompts, few-shot design, evaluation loops."},
+    {name:"LangChain",pct:82,desc:"Chains, agents, RAG pipelines, tool binding."},
+    {name:"ChromaDB",pct:75,desc:"Vector storage, embedding pipelines, retrieval tuning."},
+    {name:"FAISS",pct:72,desc:"Indexing, similarity search, dense vector retrieval."},
+    {name:"RAG",pct:80,desc:"End-to-end retrieval augmented generation with evaluation."}
+  ]},
+  {group:"Linux & Systems",ico:"&#128187;",items:[
+    {name:"Arch Linux",pct:90,desc:"Daily driver. AUR, systemd, kernel tuning, dotfiles."},
+    {name:"Shell Scripting",pct:85,desc:"Bash/zsh automation, system maintenance, deployment."},
+    {name:"i3wm",pct:82,desc:"Window management, tiling workflows, keyboard-native UX."},
+    {name:"Server Management",pct:78,desc:"VPS, NGINX, SSH hardening, backup automation."}
+  ]},
+  {group:"Cybersecurity",ico:"&#128737;",items:[
+    {name:"Network Security",pct:78,desc:"Firewalls, packet analysis, secure architecture."},
+    {name:"Cyber Attack Types",pct:75,desc:"Threat modeling, attack trees, defensive mindset."},
+    {name:"Foundations",pct:80,desc:"CIA triad, least privilege, security hygiene."}
+  ]},
+  {group:"Web & Design",ico:"&#127912;",items:[
+    {name:"HTML",pct:85,desc:"Semantic markup, accessibility, SEO structure."},
+    {name:"CSS",pct:80,desc:"Layout, animation, design tokens, responsive patterns."},
+    {name:"UI / UX Design",pct:72,desc:"User flows, wireframes, component systems, testing."}
+  ]},
+  {group:"Business & Soft Skills",ico:"&#128188;",items:[
+    {name:"Management",pct:78,desc:"Project planning, timelines, stakeholder updates."},
+    {name:"Leadership",pct:75,desc:"Team coordination, mentorship, ownership."},
+    {name:"Market Research",pct:70,desc:"Competitive analysis, user interviews, positioning."},
+    {name:"Digital Marketing",pct:68,desc:"Content, SEO basics, campaign structure."},
+    {name:"Green Start-Ups",pct:72,desc:"Sustainability-first business models and pitch design."}
+  ]}
+];
+
+(function renderSkills(){
+  var grid = document.getElementById('skillGrid');
+  if (!grid) return;
+  SKILLS.forEach(function(g){
+    var card = document.createElement('div');
+    card.className = 'skill-card';
+    var rows = g.items.map(function(it){
+      return '<div class="skillrow"><div class="top"><div class="name">'+it.name+'</div><div class="bar"><i data-w="'+it.pct+'"></i></div><div class="pct">'+it.pct+'%</div></div><div class="desc">'+it.desc+'</div></div>';
+    }).join('');
+    card.innerHTML = '<div class="skill-card__head"><div class="ico" aria-hidden="true">'+g.ico+'</div><h3>'+g.group+'</h3></div><p>Skills used in real builds and production work.</p><div class="skillrows">'+rows+'</div>';
+    grid.appendChild(card);
+  });
+  /* animate bars once rendered */
+  setTimeout(function(){
+    document.querySelectorAll('.skill-card .bar i').forEach(function(bar){
+      bar.style.width = bar.getAttribute('data-w') + '%';
+    });
+  }, 80);
+})();
+
+/* ===== puzzle gate ===== */
+(function initPuzzle(id,gridId,statusId){
+  var root=document.getElementById(id);if(!root)return;
+  var grid=document.getElementById(gridId);var status=document.getElementById(statusId);
+  var solved=false,tiles=[];
+  function render(){grid.innerHTML='';tiles.forEach(function(t,i){var el=document.createElement('div');el.className='puzzle-tile'+(t.d===0?' empty':'');el.textContent=t.d===0?'':t.d;el.setAttribute('role','gridcell');el.dataset.idx=i;grid.appendChild(el);});}
+  function solvedState(){return tiles.every(function(t,i){return t.d===i;});}
+  function swap(i,j){if(solved)return;var tmp=tiles[i];tiles[i]=tiles[j];tiles[j]=tmp;render();if(solvedState()){solved=true;root.classList.add('solved');if(status)status.textContent='Solved. Exit unlocked.';}}
+  var drag=null,startIdx=-1;
+  function findIdx(el){var t=el;while(t&&t!==grid){if(t.dataset&&t.dataset.idx!==undefined)return parseInt(t.dataset.idx,10);t=t.parentElement;}return -1;}
+  function onDown(e){if(solved)return;var t=e.target.closest('.puzzle-tile');if(!t||t.classList.contains('empty'))return;startIdx=parseInt(t.dataset.idx,10);drag=t;t.style.zIndex='2';}
+  function onMove(e){if(!drag||solved)return;e.preventDefault();var cx=(e.touches?e.touches[0].clientX:e.clientX),cy=(e.touches?e.touches[0].clientY:e.clientY);drag.style.transform='scale(.96)';var el=document.elementFromPoint(cx,cy);if(!el)return;var idx=findIdx(el);if(idx>=0&&idx!==startIdx){var dx=Math.abs(idx%3-startIdx%3),dy=Math.abs(Math.floor(idx/3)-Math.floor(startIdx/3));if((dx+dy)===1)swap(startIdx,idx);}}
+  function onUp(){if(drag){drag.style.transform='';drag.style.zIndex='';drag=null;}}
+  grid.addEventListener('mousedown',onDown);grid.addEventListener('touchstart',onDown,{passive:true});
+  window.addEventListener('mousemove',onMove);window.addEventListener('touchmove',onMove,{passive:false});
+  window.addEventListener('mouseup',onUp);window.addEventListener('touchend',onUp);
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){solved=true;root.classList.add('solved');if(status)status.textContent='Reduced motion: exit unlocked.';}
+  tiles=[0,1,2,3,4,5,6,7,8].map(function(d){return {d:d};});
+  for(var i=tiles.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=tiles[i];tiles[i]=tiles[j];tiles[j]=tmp;}
+  render();
+})('puzzleGate','puzzleGrid','puzzleStatus');
+</script>
+</body>
+</html>
